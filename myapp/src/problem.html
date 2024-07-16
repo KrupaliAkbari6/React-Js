@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- Problem:
+            You want to calculate the total amount of money saved over a period of time, given a fixed monthly saving amount and the number of months.
+     -->
+
+    <h1>Total Savings</h1>
+
+    <table style="border: 2x solid black;">
+        <form id="">
+            <tr>
+                <td><label for="monthlySaving">Monthly Saving Amount : </label></td>
+                <td><input type="number" id="monthlySaving" step="" placeholder="Enter amount"></td>
+            </tr>
+            <tr>
+                <td><label for="numberOfMonths">Number of Months : </label></td>
+                <td><input type="number" id="numberOfMonths" placeholder="Enter number of months"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="button" onclick="calculateSavings()">Calculate Savings</button>
+                </td>
+            </tr>
+        </form>
+        <p id="result"></p>
+
+        <script>
+
+            const calculateTotalSavings = (monthlySaving, numberOfMonths) => {
+                let totalSavings = 0;
+
+                for (let month = 1; month <= numberOfMonths; month++) {
+                    totalSavings += monthlySaving;
+                }
+
+                return totalSavings;
+            };
+
+
+            const calculateSavings = () => {
+                const monthlySaving = parseFloat(document.getElementById("monthlySaving").value);
+                const numberOfMonths = parseInt(document.getElementById("numberOfMonths").value);
+
+                const totalSavings = calculateTotalSavings(monthlySaving, numberOfMonths);
+
+                document.getElementById("result").innerText = `Total savings after ${numberOfMonths} months: $${totalSavings.toFixed(2)}`;
+            };
+
+
+            //area of circle
+            /*const hello = (r) => {
+                let pi = 3.14;
+    
+                let result = pi * r * r;
+                return "area of circle is : " + result;
+            }
+    
+            let res = prompt('enter the value ');
+            document.getElementById("demo").innerHTML = hello(res);*/
+
+        </script>
+    </table>
+</body>
+
+</html>
